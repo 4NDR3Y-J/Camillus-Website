@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Camillus De Lellis - Class Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <div class="sidebar">
+        <h2>MENU</h2>
+        <a href="#" onclick="showSection('welcome')"><i class="fas fa-home"></i> Welcome Page</a>
+        <a href="#" onclick="showSection('section')"><i class="fas fa-book"></i> Section</a>
+        <a href="#" onclick="showSection('subject-teachers')"><i class="fas fa-user-tie"></i> Subject Teachers</a>
+        <a href="#" onclick="showSection('officers')"><i class="fas fa-users"></i> Class Officers</a>
+        <a href="#" onclick="showSection('students')"><i class="fas fa-user-graduate"></i> Students</a>
+        <a href="#" onclick="showSection('memory')"><i class="fas fa-camera"></i> Memory Lane</a>
+    </div>
+
+    <div class="content">
+ 
+            <div id="welcome" class="section active">
+
+                <div class="card common-card">
+                    <h2>Our Adviser</h2>
+                    <img src="pictures/fil.jpg" alt="Adviser Picture" style="width: 80%; max-width: 600px; height: auto;">
+                </div>
+
+                <div class="card common-card">
+                    <div>
+                        <h2 style="color: #0066cc;">Welcome Message</h2>
+                        <p>
+                            Maligayang pagdating sa Baitang 8 - San Camillus De Lellis! Ang klaseng ito ay binubuo ng mga tahimik ngunit masayahing mga mag-aaral na laging nais may matutuhan. Sila ay may iba't ibang kakayahan at talento na handa nilang ipakita at gamitin upang tumulong sa kapwa at maglingkod sa Diyos. Higit sa lahat, lagi 
+                            at lagi nilang pinipili ang maging mabuti sa kabila ng mga pagsubok na dumarating sa kanilang buhay. ~Ms. Rowena Irinco
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section" id="section-card" class="section card common-card">
+                <h2>Section</h2>
+                    <img src="pictures/section.jpg" alt="Section Picture" style="width: 80%; object-fit: contain; height: auto; max-height: none;">
+            </div>
+
+        <div id="subject-teachers" class="section card common-card">
+            <h2>Subject Teachers</h2>
+
+            <div class="subject-teachers-container">
+                <div id="subject-teachers-list" class="student-list"></div>
+            </div>
+            
+            <template id="teacher-template">
+                <div id="subject-teachers-card" class="student-card">
+                    <img src="" alt="Portrait">
+                    <h2></h2>
+                    <h3></h3>
+                    <p class="motto"></p>
+                    <div class="details">
+                        <p><strong>Birthday:</strong> <span class="birthday"></span></p>
+                        <p><strong>Age:</strong> <span class="age"></span></p>
+                        <p><strong>Hobbies:</strong> <span class="hobbies"></span></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div id="officers" class="section card common-card">
+            <h2>Class Officers</h2>
+
+            <div class="officers-container">
+                <div id="officer-list" class="student-list"></div>
+            </div>
+            
+            <template id="student-template">
+                <div id="officer-card" class="student-card">
+                    <img src="" alt="Portrait">
+                    <h2></h2>
+                    <h3></h3>
+                    <p class="motto"></p>
+                    <div class="details">
+                        <p><strong>Birthday:</strong> <span class="birthday"></span></p>
+                        <p><strong>Age:</strong> <span class="age"></span></p>
+                        <p><strong>Hobbies:</strong> <span class="hobbies"></span></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div id="students" class="section card common-card">
+            <h2>Students of St. Camillus | S.Y. 24-25</h2>
+            
+            <div class="students-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="studentSearch" placeholder="Search for students..." onkeyup="searchStudents()">
+                </div>
+                
+                <div id="student-list" class="student-list"></div>
+            </div>
+            
+            <template id="student-template">
+                <div class="student-card">
+                    <img src="" alt="Portrait">
+                    <h3></h3>
+                    <p class="motto"></p>
+                    <div class="details">
+                        <p><strong>Birthday:</strong> <span class="birthday"></span></p>
+                        <p><strong>Age:</strong> <span class="age"></span></p>
+                        <p><strong>Hobbies:</strong> <span class="hobbies"></span></p>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div id="memory" class="section card common-card">
+            <h2>Memory Lane</h2>
+            <div class="folder" onclick="toggleFolder('feastDay-pictures')">
+                <i class="fas fa-folder"></i>
+                <h3>Feast Day</h3>
+            </div>
+            <div id="feastDay-pictures" class="pictures-container" style="display: none;">
+                <img src="images/feastDay1.jpg" alt="Memory 1" onclick="openModal(0)">
+                <img src="images/feastDay2.jpg" alt="Memory 2" onclick="openModal(1)">
+                <img src="images/feastDay3.jpg" alt="Memory 3" onclick="openModal(2)">
+                <img src="images/feastDay4.jpg" alt="Memory 4" onclick="openModal(3)">
+            </div>
+            <div class="folder" onclick="toggleFolder('q1Assessment-pictures')">
+                <i class="fas fa-folder"></i>
+                <h3>Q1 Assessment</h3>
+            </div>
+            <div id="q1Assessment-pictures" class="pictures-container" style="display: none;">
+                <img src="images/1stQuarterAssessment1.jpg" alt="Memory 1" onclick="openModal(4)">
+                <img src="images/1stQuarterAssessment2.jpg" alt="Memory 2" onclick="openModal(5)">
+            </div>
+            <div class="folder" onclick="toggleFolder('buwanNgWika-pictures')">
+                <i class="fas fa-folder"></i>
+                <h3>Buwan Ng Wika</h3>
+            </div>
+            <div id="buwanNgWika-pictures" class="pictures-container" style="display: none;">
+                <img src="images/buwanNgWika1.jpg" alt="Memory 1" onclick="openModal(6)">
+                <img src="images/buwanNgWika2.jpg" alt="Memory 2" onclick="openModal(7)">
+            </div>
+            <div class="folder" onclick="toggleFolder('thirdFridayDevotion-pictures')">
+                <i class="fas fa-folder"></i>
+                <h3>Third Friday Devotion</h3>
+            </div>
+            <div id="thirdFridayDevotion-pictures" class="pictures-container" style="display: none;">
+                <img src="images/thirdFridayDevotion1.jpg" alt="Memory 1" onclick="openModal(8)">
+                <img src="images/thirdFridayDevotion2.jpg" alt="Memory 2" onclick="openModal(9)">
+            </div>
+            <div class="folder" onclick="toggleFolder('valentines-pictures')">
+                <i class="fas fa-folder"></i>
+                <h3>Valentine's Day</h3>
+            </div>
+            <div id="valentines-pictures" class="pictures-container" style="display: none;">
+                <img src="images/valentines1.jpg" alt="Memory 1" onclick="openModal(10)">
+                <img src="images/valentines2.jpg" alt="Memory 2" onclick="openModal(11)">
+            </div>
+        </div>
+
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+        </div>
+    </div>
+</body>
+</html>
